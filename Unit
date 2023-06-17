@@ -1,0 +1,139 @@
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create a display surface
+screen = pygame.display.set_mode((800, 600))
+
+# Define some constants
+FPS = 30
+GRAVITY = 9.81
+
+# Create a class for the ferrocement canal lining
+class FerrocementCanalLining(pygame.sprite.Sprite):
+
+    def __init__(self, x, y):
+        super().__init__()
+
+        # Load the image for the ferrocement canal lining
+        self.image = pygame.image.load("ferrocement_canal_lining.png")
+
+        # Set the position of the ferrocement canal lining
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
+    def update(self):
+
+        # Apply gravity to the ferrocement canal lining
+        self.velocity.y += GRAVITY
+
+        # Move the ferrocement canal lining
+        self.rect.move_ip(0, self.velocity.y)
+
+        # Check if the ferrocement canal lining has hit the ground
+        if self.rect.bottom >= screen.get_height():
+
+            # Remove the ferrocement canal lining from the screen
+            self.kill()
+
+# Create a list of ferrocement canal linings
+canal_linings = []
+
+# Create a loop to run the game
+while True:
+
+    # Handle events
+    for event in pygame.event.get():
+
+        # Quit the game if the user closes the window
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # Clear the screen
+    screen.fill((0, 0, 0))
+
+    # Update the ferrocement canal linings
+    for canal_lining in canal_linings:
+        canal_lining.update()
+
+    # Draw the ferrocement canal linings
+    for canal_lining in canal_linings:
+        screen.blit(canal_lining.image, canal_lining.rect)
+
+    # Update the display
+    pygame.display.update()
+
+    # Slow down the game
+    pygame.time.delay(1000 // FPS)
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create a display surface
+screen = pygame.display.set_mode((800, 600))
+
+# Define some constants
+FPS = 30
+GRAVITY = 9.81
+
+# Create a class for the ferrocement canal lining
+class FerrocementCanalLining(pygame.sprite.Sprite):
+
+    def __init__(self, x, y):
+        super().__init__()
+
+        # Load the image for the ferrocement canal lining
+        self.image = pygame.image.load("ferrocement_canal_lining.png")
+
+        # Set the position of the ferrocement canal lining
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
+    def update(self):
+
+        # Apply gravity to the ferrocement canal lining
+        self.velocity.y += GRAVITY
+
+        # Move the ferrocement canal lining
+        self.rect.move_ip(0, self.velocity.y)
+
+        # Check if the ferrocement canal lining has hit the ground
+        if self.rect.bottom >= screen.get_height():
+
+            # Remove the ferrocement canal lining from the screen
+            self.kill()
+
+# Create a list of ferrocement canal linings
+canal_linings = []
+
+# Create a loop to run the game
+while True:
+
+    # Handle events
+    for event in pygame.event.get():
+
+        # Quit the game if the user closes the window
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # Clear the screen
+    screen.fill((0, 0, 0))
+
+    # Update the ferrocement canal linings
+    for canal_lining in canal_linings:
+        canal_lining.update()
+
+    # Draw the ferrocement canal linings
+    for canal_lining in canal_linings:
+        screen.blit(canal_lining.image, canal_lining.rect)
+
+    # Update the display
+    pygame.display.update()
+
+    # Slow down the game
+    pygame.time.delay(1000 // FPS)
+
